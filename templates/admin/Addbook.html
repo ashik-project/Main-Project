@@ -1,0 +1,103 @@
+{% extends 'admin/adminlayout.html' %}
+
+{% block heading1 %}
+    Addbook
+{% endblock %}
+
+{% block heading2 %}
+    Add book
+{% endblock %}
+{% block title %}
+    Add book
+{% endblock %}
+{% block content %}
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <strong>Enter Book Detail</strong>
+            </div>
+            <div class="card-body card-block">
+                <form method="post" action="/booksave/"enctype="multipart/form-data" class="form-horizontal">
+                    {% csrf_token %}
+                    <div class="row form-group">
+
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Book Title</label>
+                        </div>
+                        <div class="col-12 col-md-9"><input type="text" id="title" name="title"
+                                                            placeholder="Text" class="form-control">
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="select" class=" form-control-label">Select Course</label></div>
+                        <div class="col-12 col-md-9">
+                            <select name="course" id="course" class="form-control">
+                                <option value="0">Please select</option>
+                                <option value="SSLC">SSLC</option>
+                                <option value="+2">+2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="select" class=" form-control-label">Select Branch</label></div>
+                        <div class="col-12 col-md-9">
+                            <select name="branch" id="branch" class="form-control">
+                                <option value="0">Please select</option>
+                                <option value="Science">Science</option>
+                                <option value="Commerce">Commerce</option>
+                                <option value="Humanities">Humanities</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Edition</label>
+                        </div>
+                        <div class="col-12 col-md-9"><input type="text" id="edition" name="edition"
+                                                            placeholder="Enter Edition" class="form-control">
+
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Year</label>
+                        </div>
+                        <div class="col-12 col-md-9"><input type="text" id="year" name="year"
+                                                            placeholder="Year published" class="form-control">
+
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Author</label>
+                        </div>
+                        <div class="col-12 col-md-9"><input type="text" id="author" name="author"
+                                                            placeholder="Name of author" class="form-control">
+
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="file-input" class=" form-control-label">Select pdf</label>
+                        </div>
+                        <div class="col-12 col-md-9"><input type="file" id="pdf" name="pdf"
+                                                            class="form-control-file"></div>
+                    </div>
+
+            </div>
+            <div class="card-footer">
+
+                <button type="submit" class="btn btn-primary btn-sm">
+                    <i class="fa fa-dot-circle-o"></i> Submit
+                </button>
+                <button type="reset" class="btn btn-danger btn-sm">
+                    <i class="fa fa-ban"></i> Reset
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

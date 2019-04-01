@@ -1,0 +1,55 @@
+{% extends 'admin/adminlayout.html' %}
+{% block heading1 %}
+    Remove Book
+{% endblock %}
+{% block heading2 %}
+    Remove book
+{% endblock %}
+{% block title %}
+    Add book
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Book Info</strong>
+                            </div>
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Book Title</th>
+                                            <th scope="col">Course</th>
+                                            <th scope="col">Branch</th>
+                                            <th scope="col">Edition</th>
+                                            <th scope="col">Year</th>
+                                            <th scope="col">Author</th>
+                                            <th scope="col">View</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for item in items %}
+                                        <tr>
+
+                                            <th scope="row">{{ item.id }}</th>
+                                            <td>{{ item.book_name }}</td>
+                                            <td>{{ item.course }}</td>
+                                            <td>{{ item.branch }}</td>
+                                            <td>{{ item.edition }}</td>
+                                            <td>{{ item.edition }}</td>
+                                            <td>{{ item.author }}</td>
+                                            <td>{{ item.file }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+{% endblock %}
