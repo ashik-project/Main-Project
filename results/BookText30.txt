@@ -1,0 +1,29 @@
+ABSTRACT
+    This is a program which makes remembering things easy. Because it is a lot more 
+efficient than traditional study methods. Users can greatly decrease time spend on studying and 
+greatly 
+increase the amount they learn. There is two simple 
+concepts behind this program, 
+Repetition and recall testing
+   Our brains are efficient machines, and they rapidly discard information that doesn™t 
+seem useful, it applies to everything we learn. If you spend an afternoon memorizing some science 
+terms and t
+hen don™t think about that material for two weeks, you™ll probably have forgotten most 
+of it. In fact some studies show we forget about 75% of material learnt within 48 hour period. This 
+can seem pretty depressing when you need to learn a lot of informatio
+n. The solution is simple , 
+review. The only problem is that traditional review is not very practical. If you are using flash 
+cards its easy to flick through all of them to review. This application generates flash cards for the 
+user.
+ Flash card are generat
+ed by identifying important sentences using NLP & TF
+-IDF
+   Recall testing means being asked a question and trying remember the answer. This 
+application can generate questions from user provided text
+/PDF
+ and 
+provide
+s mock test to get an 
+idea about how much 
+they remember.
+     
