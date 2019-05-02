@@ -1,0 +1,61 @@
+{% extends 'user/userlayout.html' %}
+{% block heading1 %}
+    Remove Book
+{% endblock %}
+{% block heading2 %}
+    Remove book
+{% endblock %}
+{% block title %}
+    Add book
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="card">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Book Info</strong>
+                            </div>
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Book Title</th>
+                                            <th scope="col">Course</th>
+                                            <th scope="col">Branch</th>
+
+
+                                            <th scope="col">Author</th>
+                                            <th scope="col">View</th>
+                                            <th scope="col">Delete</th>
+                                            <th scope="col">summary</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for sums in sums %}
+                                        <tr>
+
+                                            <th scope="row">{{ item.id }}</th>
+                                            <td>{{ sums.book_name }}</td>
+                                            <td>{{ sums.course }}</td>
+                                            <td>{{ sums.branch }}</td>
+
+
+                                            <td>{{ sums.author }}</td>
+                                            <td><a href="{{ sums.file }}">Open </a></td>
+                                            <td> <a href="/deleteitem/{{ sums.id }}">Delete</a> </td>
+                                            <td> <a href="/pageselect/{{ sums.id }}">Summary</a> </td>
+
+
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+{% endblock %}

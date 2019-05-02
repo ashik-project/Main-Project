@@ -1,0 +1,16 @@
+{% extends 'user/userlayout.html' %}
+
+{% block content %}
+    <form method="post" action="/fgen/{{ pno.id }}">
+        {% csrf_token %}
+
+        Book Name : {{ pno.book_name }}<br>
+        Start Page : <input type="text" id="pstart" name="pstart" placeholder="From"><br>
+        End Page : <input type="text" id="pend" name="pend" placeholder="to"><br>
+        Chapter No : <input type="text" id="chapter" name="chapter" placeholder="chapter"><br>
+        <button type="submit" class="btn btn-primary btn-sm">Submit </button>
+
+    </form>
+
+    
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'user/userlayout.html' %}
+
+{% block heading1 %}
+    Page select
+{% endblock %}
+
+{% block heading2 %}
+    Select pages
+{% endblock %}
+{% block title %}
+    select pages
+{% endblock %}
+{% block content %}
+    <form method="post" action="/sssd/{{ pno.id }}">
+                    {% csrf_token %}
+
+    <div class="card">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Book Details</strong>
+                            </div>
+                            <div class="card-body">
+
+                                <table class="table">
+                                    <table class="thead-dark">
+
+                                        <tr>
+                                            <td>Book Name</td><td>{{ pno.book_name }}</td>
+                                            </tr><tr>
+                                            <td><div class="col-12 col-md-9"><input type="text" id="pstart" name="pstart"
+                                                            placeholder="From" class="form-control">
+                                            </div></td></tr>
+                                    </tr>
+                                        <td><div class="col-12 col-md-9"><input type="text" id="pend" name="pend"
+                                                            placeholder="to" class="form-control">
+                                        </div></td></tr>
+                                    <tr><button type="submit" class="btn btn-primary btn-sm">
+                    <i class="fa fa-dot-circle-o"></i> Submit
+                                    </button></tr></table></thead>
+
+                    </form>
+
+
+
+
+
+
+
+{% endblock %}

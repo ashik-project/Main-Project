@@ -1,0 +1,61 @@
+{% extends 'user/userlayout.html' %}
+{% block heading1 %}
+    Remove Book
+{% endblock %}
+{% block heading2 %}
+    Remove book
+{% endblock %}
+{% block title %}
+    Add book
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="card">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Book Info</strong>
+                            </div>
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Book Title</th>
+                                            <th scope="col">Course</th>
+                                            <th scope="col">Branch</th>
+
+
+                                            <th scope="col">Author</th>
+                                            <th scope="col">View</th>
+                                            <th scope="col">Delete</th>
+                                            <th scope="col">Generate</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for qstn in qstn %}
+                                        <tr>
+
+                                            <th scope="row">{{ qstn.id }}</th>
+                                            <td>{{ qstn.book_name }}</td>
+                                            <td>{{ qstn.course }}</td>
+                                            <td>{{ qstn.branch }}</td>
+
+
+                                            <td>{{ qstn.author }}</td>
+                                            <td><a href="{{ qstn.file }}">Open </a></td>
+                                            <td> <a href="/deleteitem/{{ qstn.id }}">Delete</a> </td>
+                                            <td> <a href="/qstnpageselect/{{ qstn.id }}">Generate Questions</a> </td>
+
+
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+{% endblock %}

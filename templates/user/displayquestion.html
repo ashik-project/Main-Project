@@ -1,0 +1,27 @@
+{% extends 'user/userlayout.html' %}
+{% block content %}
+
+    <div class="card">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title"></strong>
+                            </div>
+                            <div class="card-body">
+
+                                    {% for finalqstn in finalqstn %}
+
+                                    <div class="card-body">
+                                    <p class="card-text">
+                                          {{ finalqstn.question }}
+
+                                    .</p>
+                                      </div>
+
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+{% endblock %}

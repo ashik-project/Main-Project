@@ -1,0 +1,39 @@
+{% extends 'user/userlayout.html' %}
+{% block content %}
+
+    <div class="card">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Summary</strong>
+                            </div>
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                             <th scope="col">Book Title</th>
+                                            <th scope="col">Chapter</th>
+                                            <th scope="col">Summary</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for smry in smry %}
+                                        <tr>
+
+                                            <th scope="row">{{ smry.id }}</th>
+                                            <td>{{ smry.book_name }}</td>
+                                            <td>{{ smry.chapter }}</td>
+                                            <td><a href="/displaysum/{{ smry.id }}">View</a></td>
+{#                                            <td> <a href="/deleteitem/{{ item.id }}">Delete</a> </td>#}
+{#                                            <td> <a href="/pageselect/{{ item.id }}">Summary</a> </td>#}
+{#                                            <td> <a href="/viewflashpage/{{ item.id }}">Flashcard</a> </td>#}
+
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+{% endblock %}

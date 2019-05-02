@@ -1,0 +1,24 @@
+{% extends 'user/userlayout.html' %}
+
+{% block content %}
+    <form method="post" action="/qgen/{{ pno.id }}">
+        {% csrf_token %}
+            <div class="card">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Book Details</strong>
+                            </div>
+                            <div class="card-body">
+        <table>
+            <tr><td>
+
+        Book Name :</td><td> {{ pno.book_name }}</td><br></tr><tr><td>
+        Start Page :</td><td> <input type="text" id="pstart" name="pstart" placeholder="From"><br></td></tr><tr><td>
+        End Page :</td><td> <input type="text" id="pend" name="pend" placeholder="to"><br></td></tr><tr><td>
+        Chapter No :</td><td> <br><input type="text" id="chapter" name="chapter" placeholder="chapter"><br><br></td></tr><tr><td>
+        <button type="submit" class="btn btn-primary btn-sm">Submit </button>
+        </table>
+    </form>
+
+
+{% endblock %}

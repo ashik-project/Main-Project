@@ -1,0 +1,24 @@
+{% extends 'admin/adminlayout.html' %}
+{% block heading1 %}
+    Remove Book
+{% endblock %}
+{% block heading2 %}
+    Remove book
+{% endblock %}
+{% block title %}
+    Add book
+{% endblock %}
+
+
+{% block content %}
+
+<form method="post" action="/viewflash/" class="form-horizontal">
+    {% csrf_token %}
+    Enter Book name <input type="text" id="bookname" name="bookname" placeholder="Book Name" class="form-control">
+    <button type="submit" class="btn btn-primary btn-sm">
+                    <i class="fa fa-dot-circle-o"></i> Submit
+                </button>
+
+</form>
+
+{% endblock %}

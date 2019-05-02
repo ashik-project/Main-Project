@@ -1,0 +1,88 @@
+{% load static %} 
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sufee Admin - HTML5 Admin Template</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="{%static 'apple-icon.png'%}">
+    <link rel="shortcut icon" href="{%static 'favicon.ico'%}">
+
+
+    <link rel="stylesheet" href="{%static 'vendors/bootstrap/dist/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{%static 'vendors/font-awesome/css/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{%static 'vendors/themify-icons/css/themify-icons.css'%}">
+    <link rel="stylesheet" href="{%static 'vendors/flag-icon-css/css/flag-icon.min.css'%}">
+    <link rel="stylesheet" href="{%static 'vendors/selectFX/css/cs-skin-elastic.css'%}">
+
+    <link rel="stylesheet" href="{%static 'assets/css/style.css'%}">
+
+    <link href{%static ''%}={%static ''%}'{%static ''%}h{%static ''%}t{%static ''%}t{%static ''%}p{%static ''%}s{%static ''%}:{%static ''%}/{%static ''%}/{%static ''%}f{%static ''%}o{%static ''%}n{%static ''%}t{%static ''%}s{%static ''%}.{%static ''%}g{%static ''%}o{%static ''%}o{%static ''%}g{%static ''%}l{%static ''%}e{%static ''%}a{%static ''%}p{%static ''%}i{%static ''%}s{%static ''%}.{%static ''%}c{%static ''%}o{%static ''%}m{%static ''%}/{%static ''%}c{%static ''%}s{%static ''%}s{%static ''%}?{%static ''%}f{%static ''%}a{%static ''%}m{%static ''%}i{%static ''%}l{%static ''%}y{%static ''%}={%static ''%}O{%static ''%}p{%static ''%}e{%static ''%}n{%static ''%}+{%static ''%}S{%static ''%}a{%static ''%}n{%static ''%}s{%static ''%}:{%static ''%}4{%static ''%}0{%static ''%}0{%static ''%},{%static ''%}6{%static ''%}0{%static ''%}0{%static ''%},{%static ''%}7{%static ''%}0{%static ''%}0{%static ''%},{%static ''%}8{%static ''%}0{%static ''%}0{%static ''%}'{%static ''%} {%static ''%}r{%static ''%}e{%static ''%}l{%static ''%}={%static ''%}'{%static ''%}s{%static ''%}t{%static ''%}y{%static ''%}l{%static ''%}e{%static ''%}s{%static ''%}h{%static ''%}e{%static ''%}e{%static ''%}t{%static ''%}'{%static ''%} {%static ''%}t{%static ''%}y{%static ''%}p{%static ''%}e{%static ''%}={%static ''%}'{%static ''%}t{%static ''%}e{%static ''%}x{%static ''%}t{%static ''%}/{%static ''%}c{%static ''%}s{%static ''%}s{%static ''%}'{%static ''%}>{%static ''%}
+{%static ''%}
+
+
+</head>
+
+<body class="bg-dark">
+
+
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content">
+                <div class="login-logo">
+                    <a href="index.html">
+{#                        <img class="align-content" src="{%static 'images/logo.png'%}" alt="">#}
+                    </a>
+                </div>
+                <form method="post" action="/loginp/"enctype="multipart/form-data" class="form-horizontal">
+                    {% csrf_token %}
+                <div class="login-form">
+                    <form>
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <input type="text" class="form-control" placeholder="Username" id="username" name="username">
+                        </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="form-control" placeholder="Password" id="password" name="password">
+                        </div>
+                                <div class="checkbox">
+                                    <label>
+                                <input type="checkbox"> Remember Me
+                            </label>
+                                    <label class="pull-right">
+                                <a href="#">Forgotten Password?</a>
+                            </label>
+
+                                </div>
+                                <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
+
+                                <div class="register-link m-t-15 text-center">
+                                    <p>Don't have account ? <a href="#"> Sign Up Here</a></p>
+                                </div>
+                    </form>
+                </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{%static 'vendors/jquery/dist/jquery.min.js'%}"></script>
+    <script src="{%static 'vendors/popper.js/dist/umd/popper.min.js'%}"></script>
+    <script src="{%static 'vendors/bootstrap/dist/js/bootstrap.min.js'%}"></script>
+    <script src="{%static 'assets/js/main.js'%}"></script>
+
+
+</body>
+
+</html>

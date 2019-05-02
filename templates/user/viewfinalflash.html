@@ -1,0 +1,32 @@
+{% extends 'user/userlayout.html' %}
+{% block content %}
+
+    <div class="card">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title"></strong>
+                            </div>
+                            <div class="card-body">
+
+                                    {% for finalflash in finalflash %}
+
+
+                                         <div class="col-md-4">
+                                             <div class="card bg-warning">
+                                         <div class="card-body">
+                                         <blockquote class="blockquote mb-0 text-light">
+                                         <p class="text-light"> {{ finalflash.flash }}  </p>
+                                        <footer class="blockquote-footer text-light"> <cite title="Source Title"></cite></footer>
+                                         </blockquote>
+                                            </div>
+                                            </div>
+                                            </div>
+
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+{% endblock %}
