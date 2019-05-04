@@ -22,6 +22,7 @@ from nltk import sent_tokenize
 import re
 from textblob import TextBlob
 from .models import questiondata
+from django.contrib import messages
 import requests
 from textblob import Word
 import nltk
@@ -47,14 +48,17 @@ def register(request):
 
 def userreg(request):
     udata = userdata.objects.all()
-    ldata = login()
+    ldata = login.objects.all()
     Flag=0
     if request.method == 'POST':
         un = request.POST.get('username')
         pwd = request.POST.get('password')
-        for da in udata:
+        for da in ldata:
             if da.username == un:
+                print(da.username)
+                print(un)
                 Flag=1
+                return HttpResponse("user alredy exist")
         if Flag==1:
             HttpResponse("user alredy exist")
 
@@ -69,6 +73,7 @@ def userreg(request):
             ldata.type = "user"
             ldata.save()
     return HttpResponse("Sucssess")
+    return redirect('/home')
 
 def loginpage(request):
     return render(request, 'login.html')
@@ -198,23 +203,34 @@ def FlashGen(request):
 
 
 def booksave(request):
+    data1 = bookdata.objects.all()
+    Flag = 0
     if request.method == 'POST':
-        data = bookdata()
-        data.user = request.session['user']
-        data.book_name = request.POST.get('title')
-        data.course = request.POST.get('course')
-        data.branch = request.POST.get('branch')
-        data.edition = request.POST.get('edition')
-        data.year = request.POST.get('year')
-        data.author = request.POST.get('author')
-        pdf = request.FILES['pdf']
-        fs = FileSystemStorage()
-        filename = fs.save(pdf.name, pdf)
-        uploaded_file_url = fs.url(filename)
-        data.file = uploaded_file_url
-        data.save()
-        # book = bookdata.objects.get(file=uploaded_file_url)
-        # pdfToText(book.file, str(book.id))
+        booknm = request.POST.get('title')
+        for da in data1:
+            if da.book_name==booknm:
+                Flag = 1
+                return HttpResponse("book "+booknm+" alredy exist")
+        if Flag == 1:
+            HttpResponse("user alredy exist")
+
+        else:
+            data = bookdata()
+            data.user = request.session['user']
+            data.book_name = request.POST.get('title')
+            data.course = request.POST.get('course')
+            data.branch = request.POST.get('branch')
+            data.edition = request.POST.get('edition')
+            data.year = request.POST.get('year')
+            data.author = request.POST.get('author')
+            pdf = request.FILES['pdf']
+            fs = FileSystemStorage()
+            filename = fs.save(pdf.name, pdf)
+            uploaded_file_url = fs.url(filename)
+            data.file = uploaded_file_url
+            data.save()
+            # book = bookdata.objects.get(file=uploaded_file_url)
+            #pdfToText(book.file, str(book.id))
 
         return redirect('/Addbook')
     else:
@@ -292,6 +308,7 @@ def flashgenchapter(request , bn):
 
 
 
+
 def viewflashpage(request , id):
     bdata = bookdata.objects.get(id=id)
     sdata = summarydata.objects.get(book_name=bdata.book_name)
@@ -332,6 +349,74 @@ def viewflashpage(request , id):
         #     ct=ct+1
         # print (ct)
     return HttpResponse (sum)
+
+def fgen1(request,id):
+    if request.method == 'POST':
+        a1 = int(request.POST.get('pstart'))
+        a2 = int(request.POST.get('pend'))
+        chaptr = int(request.POST.get('chapter'))
+        book=bookdata.objects.get(id=id)
+        filename=book.file
+        f1=filename.lstrip("/")
+        bn=book.book_name
+    # a1=5
+    # a2=10
+        a=[]
+        for k in range (a1,a2):
+            a.append(k)
+        x=convert2(f1,bn, pages=a)
+        sum = x
+
+        sentences = re.split(r' *[\.\?!][\'"\)\]]* *', sum)
+        d="defined"
+        flag2 = 0
+        user = request.session['user']
+        data3 = flasdata()
+        for dd in sentences:
+            if d in dd:
+                flag2=1
+                print (dd)
+                data3.book_name = bn
+                data3.book_id = book.id
+                data3.chapter = chaptr
+                data3.flash = dd
+                data3.username = user
+                data3.save()
+
+
+        lenn = len(sentences)
+        mid = int((0 + lenn) / 2)
+        # print(sentences[1])
+        # print(sentences[mid], ":", mid)
+        # print(sentences[lenn - 2], ":", lenn - 1)
+        f_1 = sentences[1]
+        f_2 = sentences[mid]
+        f_3 = sentences[lenn - 2]
+        data = flasdata()
+        data1 = flasdata()
+        data2 = flasdata()
+        user = request.session['user']
+        data.book_name = bn
+        data.book_id = book.id
+        data.chapter = chaptr
+        data.flash = f_1
+        data.username = user
+        data.save()
+        data1.book_name = bn
+        data1.book_id = book.id
+        data1.chapter = chaptr
+        data1.flash = f_2
+        data1.username = user
+        data1.save()
+        data2.book_name = bn
+        data2.book_id = book.id
+        data2.chapter = chaptr
+        data2.flash = f_3
+        data2.username = user
+        data2.save()
+        return HttpResponse(x)
+
+
 
 def fgen(request,id):
     if request.method == 'POST':
@@ -466,7 +551,7 @@ def qgen(request , id):
             a = []
             for k in range(a1, a2):
                 a.append(k)
-            x = convert2(f1, bn, pages=a)
+            x = convert1(f1, bn, pages=a)
         sentences = re.split(r' *[\.\?!][\'"\)\]]* *', x)
         for qg in sentences:
             genQuestion(qg,uname,bn,chap)

@@ -28,8 +28,12 @@
     <link rel="stylesheet" href="{% static 'vendors/jqvmap/dist/jqvmap.min.css' %}">
 
 
+
+
+
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
@@ -63,10 +67,10 @@
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Book Management</a>
+                       aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Books</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-spinner"></i><a href="/Addbook">Add Books</a></li>
-                        <li><i class="fa fa-spinner"></i><a href="/viewdata">View Books</a></li>
+{#                        <li><i class="fa fa-spinner"></i><a href="/viewdata">View Books</a></li>#}
                     </ul>
                 </li>
                                 <li class="menu-item-has-children dropdown">
@@ -168,6 +172,8 @@
     <script src="{% static 'vendors/jqvmap/dist/jquery.vmap.min.js' %}"></script>
     <script src="{% static 'vendors/jqvmap/examples/js/jquery.vmap.sampledata.js' %}"></script>
     <script src="{% static 'vendors/jqvmap/dist/maps/jquery.vmap.world.js' %}"></script>
+
+
     <script>
         (function ($) {
             "use strict";

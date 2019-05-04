@@ -54,6 +54,7 @@ urlpatterns = [
     path('genQuestion/', views.genQuestion),
     path('flashgenchapter/<str:bn>' , views.flashgenchapter),
     path('fgen/<int:id>' , views.fgen),
+    path('fgen1/<int:id>' , views.fgen1),
     path('flashpageselect/<int:id>' , views.flashpageselect),
     path('summerylist/', views.summerylist),
     path('summerylistdata/',views.summerylistdata),

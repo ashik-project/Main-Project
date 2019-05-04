@@ -1,7 +1,7 @@
 {% extends 'user/userlayout.html' %}
 
 {% block content %}
-    <form method="post" action="/fgen/{{ pno.id }}">
+    <form method="post" action="/fgen1/{{ pno.id }}">
         {% csrf_token %}
             <div class="card">
                         <div class="card">
@@ -15,7 +15,7 @@
         Book Name :</td><td> {{ pno.book_name }}</td><br></tr><tr><td>
         Start Page :</td><td> <input type="text" id="pstart" name="pstart" placeholder="From"><br></td></tr><tr><td>
         End Page :</td><td> <input type="text" id="pend" name="pend" placeholder="to"><br></td></tr><tr><td>
-        Chapter No :</td><td> <br><input type="text" id="chapter" name="chapter" placeholder="chapter"><br><br></td></tr><tr><td>
+        Title :</td><td> <br><input type="text" id="chapter" name="chapter" placeholder="Title"><br><br></td></tr><tr><td>
         <button type="submit" class="btn btn-primary btn-sm">Submit </button>
         </table>
     </form>
